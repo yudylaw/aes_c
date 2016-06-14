@@ -1,5 +1,9 @@
+
+
+
 test: main.o aes256.o decode.o encode.o
 	gcc -o test main.o aes256.o encode.o decode.o -lssl -lcrypto
+	ar rc libaes_base64.a aes256.o encode.o decode.o
 
 main.o: b64.h aes256.h main.c
 	gcc -c main.c -o main.o
